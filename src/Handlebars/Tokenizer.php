@@ -177,13 +177,11 @@ class Handlebars_Tokenizer
                         || ($this->tagType == self::T_UNESCAPED)
                         || ($this->tagType == self::T_UNESCAPED_2)
                     ){
-                        if (strpos($this->buffer, '.') !== 0){
-                            $newBuffer = explode(' ', trim($this->buffer));
-                            if (count($newBuffer) >= 2) {
-                                $args = array_slice($newBuffer, 1);
-                            }
-                            $this->buffer = $newBuffer[0];
+                        $newBuffer = explode(' ', trim($this->buffer));
+                        if (count($newBuffer) >= 2) {
+                            $args = array_slice($newBuffer, 1);
                         }
+                        $this->buffer = $newBuffer[0];
                     }
 
                     $t = array(
